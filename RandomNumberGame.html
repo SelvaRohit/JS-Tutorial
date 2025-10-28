@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Guess the number from 1 to 10</h1>
+    <input type="number" id="randomNumber" placeholder="Enter a Random number" min="1" max="10" step="1" value="1">
+    <button id="Check" onclick="CompareNumbers()">Check</button>
+    <p id="resultStatus">Your Result</p>
+    <!-- <div id="score-indicator"> -->
+    <label for="score">Your Score: </label>
+    <p id="score">10</p>
+    <!-- </div> -->
+
+</body>
+</html>
+<style>
+    /* #score-indicator{
+        display: flex;
+        align-items: center;
+    } */
+     #score{
+        display: inline-block;
+     }
+     #randomNumber{
+        /* max-width: fit-content; */
+        width: 20%;
+     }
+</style>
+<script>
+    function CompareNumbers()
+    {
+        let userInput=document.getElementById("randomNumber").value;
+        console.log("User input:", userInput);
+        let randomNumber=Math.floor((Math.random() * 10)+1);
+        console.log("Generated random number:", randomNumber);
+        let currentScore_control=document.getElementById("score");
+        console.log("Score element:", currentScore_control);
+        let currentScore=Number(currentScore_control.innerHTML);
+        console.log("Current score value:", currentScore);
+        let status=document.getElementById("resultStatus");
+        console.log("Status element:", status);
+        if (userInput==randomNumber)
+        {
+            console.log("Condition correct");
+            currentScore++;
+            status.innerHTML="You are Right!";
+        }
+        else{
+            console.log("Condition wrong");
+            currentScore--;
+            status.innerHTML="You are Wrong!";
+        }
+        console.log("currentScore:  ",currentScore);
+        currentScore_control.innerHTML=String(currentScore)
+    }
+</script>
