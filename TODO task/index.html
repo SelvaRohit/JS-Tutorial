@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TODO</title>
+    <style>
+        body{
+            /* background: linear-gradient(to right, "yellow","red"); */
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+        }
+    </style>
+</head>
+<body >
+    <div id="decor">
+    <h1 id="heading">TODO List 📝</h1>
+    <div>
+    <input type="text" id="addList" placeholder="Add your text...">
+    <button id="addButton" onclick=addList1(event) >Add</button>
+    </div>
+    <ul id="listItems">
+
+    </ul>
+    </div>
+</body>
+</html>
+<style>
+    #decor{
+        width: auto;
+        height: max-content;
+        background-color: white;
+        padding: 20px;
+        border-radius: 15px;
+    }
+    #heading{
+        display: inline-block;
+    }
+    #addList{
+        width: 60%;
+    }
+    .deleteBtn{
+        background-color: transparent;
+        color: #feb47b;
+        border: 0px;
+        cursor: pointer;
+
+    }
+    .listEachItem{
+        color: #ff7e5f;
+    }
+</style>
+<script>
+    var listItems=document.getElementById("listItems")
+    var input=document.getElementById("addList")
+    input.focus();
+    function addList1(event){
+        var listelement=document.createElement("li")
+        listelement.className="listEachItem";
+        var deleteButton=document.createElement("button")
+        listelement.innerHTML= input.value+"<button class='deleteBtn'>X</button>"
+        console.log("Added")
+        listItems.append(listelement)
+        input.select();
+    }
+</script>
